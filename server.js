@@ -1,10 +1,13 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import './config/db.js';
+import authRoutes from "./routers/authRoutes.js";
 
 const app = express();
-const PORT = 3000;
+const PORT = 5050;
 app.use(bodyParser.json());
+
+app.use('/api', authRoutes);
 
 app.listen(PORT, () => {
     console.log(
